@@ -2,6 +2,32 @@
 
 DonutIncremental is a cozy, browser-based incremental game where you start with a single donut and build a thriving donut empire through clever automation, flavorful research, and sweet prestige loops.
 
+## Development Setup
+This repository ships with a Vite + React + TypeScript scaffold to jump directly into gameplay experiments.
+
+### Prerequisites
+- Node.js 20+
+- npm 10+
+
+### Install & Run
+```bash
+npm install
+npm run dev
+```
+
+Additional commands:
+- `npm run build` - Production build
+- `npm run preview` - Serve the built app locally
+- `npm run lint` - Run the provided ESLint checks
+
+## Project Layout
+- `src/App.tsx` - Main screen wiring stats, manual clicking, and the building list.
+- `src/hooks/useGameState.ts` - Lightweight state container with the tick loop, purchasing, and manual baking.
+- `src/data/buildings.ts` - Starter building definitions and tuning knobs (costs, multipliers, DPS).
+- `src/types/game.ts` - Shared type definitions for the economy model.
+- `src/components/` - Reusable UI pieces (stat cards, building cards).
+- `src/utils/numbers.ts` - Numeric helpers for formatting and rate display.
+
 ## Game Vision
 - **Vibe:** Lighthearted, colorful, and cozy. UI leans on bakery counters, pastel sprinkles, and warm lighting.
 - **Session Style:** Short, satisfying loops that feel productive within minutes, plus long-form idle depth for multi-day runs.
@@ -43,12 +69,16 @@ DonutIncremental is a cozy, browser-based incremental game where you start with 
 - **Persistence:** LocalStorage-first saves with optional cloud sync; import/export as versioned JSON.
 - **Testing:** Unit tests for reducers and math helpers; integration tests for prestige/reset flows; snapshot tests for UI components.
 
+## Current Prototype
+- **Gameplay Shell:** Manual baking button, live stats (current donuts, lifetime donuts, automation rate), and a responsive card layout.
+- **Automation:** Four starter buildings with scaling costs and baked-in donuts-per-second contributions driven by a fixed tick loop.
+- **Styling:** Cozy gradient backdrop with reusable stat and building cards to speed up UI iteration.
+
 ## Next Steps
-- **Design & UX:** Wireframe the main bakery panel, resource bars, upgrade list, and prestige modal. Define color/typography tokens and accessibility defaults.
-- **Prototype:** Stand up a Vite + React shell with a minimal tick loop, a resource display, and a couple of buildings/upgrades.
+- **Design & UX:** Wireframe the prestige modal, upgrade list, and responsive navigation. Flesh out color tokens and accessibility defaults.
 - **Economy Tuning:** Document scaling curves (cost multipliers, softcaps), DPS formulas, and prestige rewards. Create a spreadsheet or JSON curves for iteration.
 - **Content:** Draft the first 3 donut varieties, 5–6 upgrades, and a starter achievement list.
-- **Infrastructure:** Set up linting (ESLint + Prettier), formatting hooks, and basic CI (lint + unit tests). Add analytics/event stubs for later.
+- **Infrastructure:** Add formatting hooks and CI (lint + unit tests). Add analytics/event stubs for later.
 
 ## How It Will Be Built
 - Start with the Vite/React scaffold and a modular game-state core (ticks, resources, buildings) separated from UI components.
